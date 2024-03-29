@@ -1,0 +1,90 @@
+
+#==============#                                       03-11-2020
+#  KRÜMELSOFT  #
+#==============#
+                  Allgemeine Nutzungs/Lizenzbedingungen
+
+0. Diese Nutzungs/Lizenzbedingungen beziehen sich ausschließlich
+auf die Produkte von KRÜMELSOFT.
+
+Für alle weiteren mitgelieferten Produkte, z.B. ODBC-Treiber,
+ADOBE-Acrobat-Reader u.s.w. gelten die produkteigenen Nutzungs/Lizenzbedingungen.
+Für diese Produkte übernimmt KRÜMELSOFT keinerlei Support oder 
+Gewährleistungen!
+
+1a. Sharewareversion
+Die Sharewareversion dieses Programmes darf beliebig oft kopiert und
+weitergegeben werden (Sharewareprinzip); hiervon ausgenommen ist die
+gewerbliche Nutzung (siehe hierzu auch Punkt 1c. dieser Bestimmungen).
+Voraussetzung hierfür ist die unveränderte Weitergabe aller Dateien.
+Der Anwender/Nutzer darf das Programm 30 Tage testen. Soll das
+Programm nach diesem Testzeitraum weiter eingesetzt werden, muß der
+Anwender/Nutzer eine Lizenz beantragen; nach Ablauf der 30tägigen
+Testphase ist das Programm erst nach Eingabe des Lizenzcodes 
+(= lizenzierte Version) lauffähig.
+
+In der Sharewareversion gesperrte Funktionen sind in der Hilfedatei beschrieben.
+
+1b. Vollversion = lizenzierte Version
+Das Programm darf nur auf einem Arbeitsplatz betrieben werden
+(Einzelplatzlizenz, keine Netzwerknutzung).
+Das Programm darf (als Vollversion) nicht kopiert oder in irgendeiner
+anderen Form vervielfältigt werden.
+Ausgenommen hiervon sind Sicherheitskopien für den persönlichen Gebrauch.
+
+1c. Gewerbliche Nutzung
+Eine gewerbliche Nutzung aller Programmdateien bedarf der ausdrücklichen
+Genehmigung.
+
+2. Die Dateien dieses Programmes dürfen - mit Ausnahme der Konfigurationsdateien -
+nicht verändert werden. Für die durch in den Konfigurationsdateien oder der Registry
+vorgenommenen Änderungen entstandene Fehler wird keine Verantwortung übernommen
+(siehe hierzu auch Punkt 4. dieser Bestimmungen). 
+
+3. Sollte eine in der Dokumentation bzw. Hilfedatei nicht beschriebene
+Funktion trotzdem funktionsfähig sein, so besteht bei Updates keine Gewähr, das
+diese Funktion(en) weiterhin vorhanden ist(sind), der Anwender/Nutzer hat somit
+keinen Anspruch auf diese Funktion(en).
+
+4. Das Programm wurde mit großer Sorgfalt erstellt. Trotzdem
+lassen sich Fehler nie ganz vermeiden. Ich sehe mich deshalb
+gezwungen, weder eine Garantie noch die juristische Verantwortung oder
+irgendeine Haftung für eventuelle Folgeschäden, die auf die Programmnutzung
+zurückzuführen sind, zu übernehmen.
+Weiterhin wird keine Garantie dafür übernommen, dass die im Programm enthaltenen
+Funktionen den Anforderungen des Benutzers genügen oder dass der 
+Programmbetrieb reibungslos bzw. fehlerfrei abläuft.
+Für Hinweise auf eventuelle Fehler oder mögliche Verbesserungen
+bin ich dankbar.
+
+5a. Der Anwender/Nutzer kann unter Angabe des Produkt- und Benutzernamens
+via eMail unter der Adresse
+
+Michael.Zimmermann.SG@t-online.de
+
+eine Lizenz beantragen.
+Nach Beantragung der Lizenz bekommt der Anwender/Nutzer eine Rechnung
+mit den Zahlungsmodalitäten. Eine Lizenzierung und die Bekanntgabe des
+persönlichen Lizenzcodes erfolgt nach eingegangener Zahlung.
+Jeder lizenzierte Anwender/Nutzer wird über Programmaktualisierungen und
+Fehlerbeseitigungen informiert.
+Ferner wird der lizenzierte Anwender/Nutzer auf Wunsch über neue Versionen
+und weitere Programme von KRÜMELSOFT informiert.
+
+Der Anwender/Nutzer erklärt sich durch seine Lizenzierung mit diesen
+Lizenzbedingungen sowie der Speicherung der von Ihm übermittelten Daten
+gemäß DSGVO einverstanden.
+
+5b. Der Anwender/Nutzer verpflichtet sich zur Geheimhaltung, dass heißt, er
+darf weder den Benutzernamen noch den Lizenzcode an Dritte weitergeben oder
+Dritten zugänglich machen. Bei Zuwiderhandlungen erlischt die Lizenz.
+
+5c. Gemäß §28 BDSG werden personenbezogene Anwenderdaten nur für die
+Lizenzierung gespeichert und nicht an Dritte weitergegeben.
+
+
+
+-----------------------------------------------------------------------------
+
+(c) 1999-heute, Michael Zimmermann. All rights reserved.
+
