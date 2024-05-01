@@ -8,7 +8,7 @@ There is no setup necessary, please copy all file into a (new) directory and enj
 The program was created to the best of our knowledge and without guarantee of function in the hope that it will be useful.
 If it is not useful - then it is not.
 
-ist ein Windows-Programm zum Lesen von FPL-Dateien (erstellt aus [FPLEdit](https://fahrplan.manuelhu.de/)) und zum Konvertieren der Datei in eine BFO-Datei (BFO = Bahnhofsfahrordnung), die mehr als den Fahrplan aus einer FPL-Datei enthalten kann.
+ist ein Windows-Programm zum Lesen von FPL-Dateien (erstellt aus [FPLEdit](https://fahrplan.manuelhu.de/)) und zum Konvertieren der Datei in eine BFO-Datei (BFO = [Bahnhofsfahrordnung](https://de.wikipedia.org/wiki/Fahrplan_f%C3%BCr_Zugmeldestellen)), die mehr als den Fahrplan aus einer FPL-Datei enthalten kann.
 Das Programm ist für den x64-Modus kompiliert und funktioniert unter Windows 11 und möglicherweise auch auf früheren Windows-Versionen (ohne Gewähr). Eine Version für Windows-32 ist ebenfalls verfügbar.<br>
 
 Es ist keine Installation erforderlich, einfach alle Dateien in ein (neues) Verzeichnis kopieren und das Programm starten.<br>
