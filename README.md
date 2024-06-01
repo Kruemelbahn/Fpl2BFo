@@ -23,6 +23,15 @@ Wenn es nicht nützlich ist, dann eben nicht.
 - mehrere Fehler beseitigt
 - Ausgabe der Startaufstellung als Aufsteller oder Karten
 
+## new in Version 1.2
+- some smaller bugs fixed
+- Output of the description for handling of BFO-file
+- custom-symbol definitions possible 
+
+- einige kleine Fehler behoben
+- Ausgabe der Beschreibung zur Handhabung der BFO-Datei
+- Eigene Symboldefinitionen möglich 
+
 ### Hint
 If the program "Fpl2BFo.exe" cannot be started because MFC140.DLL is missing,
 please use 'vc_redist.x64.exe' which is an installer for MFC140.DLL and can be downloaded from here (original link to Microsoft page):
