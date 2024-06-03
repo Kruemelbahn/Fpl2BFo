@@ -32,6 +32,13 @@ Wenn es nicht nützlich ist, dann eben nicht.
 - Ausgabe der Beschreibung zur Handhabung der BFO-Datei
 - Eigene Symboldefinitionen möglich 
 
+## new in Version 2.0
+- serious error fixed when reading/writing the BFO-file
+- support of hexadecimal values for use with color for custom-symbol
+
+- schweren Fehler beim Lesen/Schreiben der BFO-Datei behoben
+- Unterstützung von Hexadezimalwerten für die Verwendung bei Farben für benutzerdefinierte Symbole 
+
 ### Hint
 If the program "Fpl2BFo.exe" cannot be started because MFC140.DLL is missing,
 please use 'vc_redist.x64.exe' which is an installer for MFC140.DLL and can be downloaded from here (original link to Microsoft page):
