@@ -1,55 +1,49 @@
-﻿# Fpl2BFo
+﻿# Fpl2BFo (en)
 
 is a Windows program for reading FPL-files (created from [FPLEdit](https://fahrplan.manuelhu.de/)) and convert the file into a BFO-file (BFO = Station timetable) which can contain more than the timetable from FPL-file.
-The program is compiled for x64-mode and works under Windows 11 and may work also on previous Windows-Versions (without guarantee). A version for Windows-32 is also available.<br>
+The program is compiled for x64-mode and works under Windows 10 oder 11 and may work also on previous Windows-Versions (without guarantee). A version for Windows-32 is also available.<br>
 
 There is no setup necessary, please copy all file into a (new) directory and enjoy.<br>
 
 The program was created to the best of our knowledge and without guarantee of function in the hope that it will be useful.
 If it is not useful - then it is not.
+A translation of the software into other languages is not planned.
+
+# Fpl2BFo (de)
 
 ist ein Windows-Programm zum Lesen von FPL-Dateien (erstellt aus [FPLEdit](https://fahrplan.manuelhu.de/)) und zum Konvertieren der Datei in eine BFO-Datei (BFO = [Bahnhofsfahrordnung](https://de.wikipedia.org/wiki/Fahrplan_f%C3%BCr_Zugmeldestellen)), die mehr als den Fahrplan aus einer FPL-Datei enthalten kann.
-Das Programm ist für den x64-Modus kompiliert und funktioniert unter Windows 11 und möglicherweise auch auf früheren Windows-Versionen (ohne Gewähr). Eine Version für Windows-32 ist ebenfalls verfügbar.<br>
+Das Programm ist für den x64-Modus kompiliert und funktioniert unter Windows 10 oder 11 und möglicherweise auch auf früheren Windows-Versionen (ohne Gewähr). Eine Version für Windows-32 ist ebenfalls verfügbar.<br>
 
 Es ist keine Installation erforderlich, einfach alle Dateien in ein (neues) Verzeichnis kopieren und das Programm starten.<br>
 
 Das Programm wurde nach bestem Wissen und ohne Gewähr auf Funktion erstellt in der Hoffnung, dass es einen Nutzen bringt.
 Wenn es nicht nützlich ist, dann eben nicht.
+Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 
-## new in Version 1.1
-- several bugfixes
-- Output of the starting line-up as a stand-up display or cards
-
+## neu in Version 1.1
 - mehrere Fehler beseitigt
 - Ausgabe der Startaufstellung als Aufsteller oder Karten
 
-## new in Version 1.2
-- some smaller bugs fixed
-- Output of the description for handling of BFO-file
-- custom-symbol definitions possible 
-
+## neu in Version 1.2
 - einige kleine Fehler behoben
 - Ausgabe der Beschreibung zur Handhabung der BFO-Datei
 - Eigene Symboldefinitionen möglich 
 
-## new in Version 2.0
-- serious error fixed when reading/writing the BFO-file
-- support of hexadecimal values for use with color for custom-symbol
-
+## neu in Version 2.0
 - schweren Fehler beim Lesen/Schreiben der BFO-Datei behoben
 - Unterstützung von Hexadezimalwerten für die Verwendung bei Farben für benutzerdefinierte Symbole 
 
-### Hint
-If the program "Fpl2BFo.exe" cannot be started because MFC140.DLL is missing,
-please use 'vc_redist.x64.exe' which is an installer for MFC140.DLL and can be downloaded from here (original link to Microsoft page):
-
-https://aka.ms/vs/17/release/vc_redist.x64.exe 
-
-Execute the downloaded file for install.
-
-Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
-verwenden Sie bitte „vc_redist.x64.exe“, ein Installationsprogramm für MFC140.DLL, das hier heruntergeladen werden kann (originaler Link zur Microsoft-Seite):
-
-https://aka.ms/vs/17/release/vc_redist.x64.exe
-
-Führen Sie die heruntergeladene Datei zur Installation aus.
+## neu in Version 2.1
+- schweren Fehler beim Lesen der FPL-Datei behoben
+- beim Starten des Programms hilft jetzt ein Startassistent
+- Bahnhofsfahrordnung kann jetzt ohne Fahrplandatei erstellt werden
+- weitere kleine Fehler behoben
+ 
+> [!NOTE]
+> Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
+> verwenden Sie bitte „vc_redist.xxx.exe“, ein Installationsprogramm für MFC140.DLL, das hier heruntergeladen werden kann (originaler Link zur Microsoft-Seite):
+> 
+> für Win32: https://aka.ms/vs/17/release/vc_redist.x86.exe
+> für Win64: https://aka.ms/vs/17/release/vc_redist.x64.exe
+> 
+> Führen Sie die heruntergeladene Datei zur Installation aus.
