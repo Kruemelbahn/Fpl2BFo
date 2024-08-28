@@ -1,7 +1,7 @@
-﻿# Fpl2BFo (en)
+﻿# Fpl2BFo
 
 is a Windows program for reading FPL-files (created from [FPLEdit](https://fahrplan.manuelhu.de/)) and convert the file into a BFO-file (BFO = Station timetable) which can contain more than the timetable from FPL-file.
-The program is compiled for x64-mode and works under Windows 10 oder 11 and may work also on previous Windows-Versions (without guarantee). A version for Windows-32 is also available.<br>
+The program is compiled for x64-mode and works under Windows 10 or 11 and may work also on previous Windows-Versions (without guarantee). A version for Windows-32 is also available.<br>
 
 There is no setup necessary, please copy all file into a (new) directory and enjoy.<br>
 
@@ -38,12 +38,24 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - beim Starten des Programms hilft jetzt ein Startassistent
 - Bahnhofsfahrordnung kann jetzt ohne Fahrplandatei erstellt werden
 - weitere kleine Fehler behoben
+
+## neu in Version 2.2
+- Plausibilitätsprüfung der Daten
+- Zusammenfassen einiger Ausgabedialoge
+- Aufteilung der Settings auf mehrere Seiten
+- Dateiendungen können jetzt registriert werden, wenn das Programm als Administrator gestartet wird
+- Fehlerprüfung der BFO vor einer Seitenansicht, dem Drucken bzw. dem Speichern
+- Ein- und Ausgabe von Dokumententitel, aktueller Bahnhofsname und Fahrplaninformationen zur BFO
+- Dropdownliste für 'Gleis' bei der Bearbeitung einer Zeile in der Startaufstellung
+- HTML-Export: Bahnhofsbild kann base64-codiert ausgegeben werden
+- neues Addon "Suchen und Ersetzen"
+- weitere kleine Fehler behoben
  
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
 > verwenden Sie bitte „vc_redist.xxx.exe“, ein Installationsprogramm für MFC140.DLL, das hier heruntergeladen werden kann (originaler Link zur Microsoft-Seite):
 > 
-> für Win32: https://aka.ms/vs/17/release/vc_redist.x86.exe
-> für Win64: https://aka.ms/vs/17/release/vc_redist.x64.exe
+> - für Win32: https://aka.ms/vs/17/release/vc_redist.x86.exe 
+> - für Win64: https://aka.ms/vs/17/release/vc_redist.x64.exe
 > 
 > Führen Sie die heruntergeladene Datei zur Installation aus.
