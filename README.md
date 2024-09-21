@@ -51,6 +51,9 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - neues Addon "Suchen und Ersetzen"
 - weitere kleine Fehler behoben
  
+## neu in Version 2.3
+- weitere kleine Fehler behoben
+ 
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
 > verwenden Sie bitte „vc_redist.xxx.exe“, ein Installationsprogramm für MFC140.DLL, das hier heruntergeladen werden kann (originaler Link zur Microsoft-Seite):
