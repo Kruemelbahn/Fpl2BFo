@@ -59,6 +59,9 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - neue Funktionen in der Bahnhofsauswahl und der Startaufstellung
 - neue Plausibilitätsprüfungen
 - Hilfe aktualisiert
+
+## neu in Version 2.4.1
+- Bugfix nach der Lizenzierung
  
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
