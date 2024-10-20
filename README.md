@@ -53,6 +53,12 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
  
 ## neu in Version 2.3
 - weitere kleine Fehler behoben
+
+## neu in Version 2.4
+- kleine Fehler u.a. für CustomChar bei der HTML-Ausgabe behoben
+- neue Funktionen in der Bahnhofsauswahl und der Startaufstellung
+- neue Plausibilitätsprüfungen
+- Hilfe aktualisiert
  
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
