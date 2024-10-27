@@ -62,7 +62,11 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 
 ## neu in Version 2.4.1
 - Bugfix nach der Lizenzierung
- 
+
+## neu in Version 2.5
+- verbesserte Unterstützung bei den Prüfläufen, Hilfe aktualisiert
+- Registrierung der Dateiendungen für die Dateivorschau korrigiert und erweitert
+
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
 > verwenden Sie bitte „vc_redist.xxx.exe“, ein Installationsprogramm für MFC140.DLL, das hier heruntergeladen werden kann (originaler Link zur Microsoft-Seite):
