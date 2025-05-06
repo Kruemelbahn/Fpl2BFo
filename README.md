@@ -67,6 +67,10 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - verbesserte Unterstützung bei den Prüfläufen, Hilfe aktualisiert
 - Registrierung der Dateiendungen für die Dateivorschau korrigiert und erweitert
 
+## neu in Version 3.0
+- neue Funktionen, Erweiterungen von Funktionen, Bugfixes (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/ReleaseNotes.txt))
+- Hilfe aktualisiert
+
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
 > verwenden Sie bitte „vc_redist.xxx.exe“, ein Installationsprogramm für MFC140.DLL, das hier heruntergeladen werden kann (originaler Link zur Microsoft-Seite):

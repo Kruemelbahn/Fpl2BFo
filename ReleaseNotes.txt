@@ -1,0 +1,34 @@
+#=========================#
+# Fpl2BFO - Release Notes #
+#=========================#
+
+Version 3.0 (03.05.2025)
+------------------------
+Neu:
++ Lizenzbedingungen aktualisiert; für V3.0 (Upgrade) ist eine _neue_ Lizenz erforderlich.
++ Plausibilitätsmeldungen
+  - können jetzt auch unabhängig vom Speichern/Seitenansicht/Drucken/Exportieren ausgeführt werden
+  - können gesammelt angezeigt werden
+  - können in einer Datei gespeichert werden
+  - neue Meldung: "ohne 'Meldung von' und ohne 'Meldung nach'"
++ Daten der Startaufstellung können auch in der BFO-Datei gespeichert werden
++ Pfadangaben in der BFO-Datei können auch relative Pfade sein
++ Unterstützung von Vorlagen (Templates) zur vereinfachten Konvertierung einer FPL-Datei in eine BFO-Datei
++ im "Dialog Startaufstellungszeile bearbeiten" stehen weitere Filter/Auswahlmöglichkeiten für eine Fahrzeugauswahl zur Verfügung
++ Möglichkeiten beim Öffnen einer BFO-, BFOTEMPL- oder STA-Datei:
+  - schreibgeschützt (Bearbeiten ist möglich, Speichern nur mit "Speichern unter")
+  - optional als Textdatei in einem externen Texteditor
++ ein verfügbares Update kann aus "Fpl2BFo" heraus heruntergeladen werden (Dialog 'Modulinformationen') 
++ Schnittstelle innerhalb von "Fpl2BFoDat.DLL" damit FPL/BFO/STA-Dateien unabhängig vom Hauptprogramm gelesen werden können.
+  So könnne die gelesenen Daten extern verarbeitet werden.
+  Diese Schnittstelle wird von einen COM-Server ("Fpl2BFoServer.DLL") verwendet und muss separat lizenziert werden (Dialog 'erweiterte Lizenzierung')
+
+Die wichtigsten Korrekturen:
++ zahlreiche Bugfixes, u.a. Fehler beim Tabellenexport korrigiert
++ Hilfe aktualisiert und erweitert
++ Im "Dialog Druckeinrichtung" kann die Hilfe auch über "F1" aufgerufen werden
++ Im "Dialog Seitenansicht" wird jetzt über "F1" die richtige Hilfe aufgerufen
++ Menüs für "PlugIn" und "AddOn" sind jetzt gefüllt
++ die Zeilenhöhe _aller_ Spalten des Fahrplaneditors werden jetzt bei der Seitenansicht / dem Drucken berücksichtigt
++ der "Dialog Angaben zur Bahnhofsfahrordnung" enthält jetzt eine "Abbrechen"-Schaltfläche
++ Aufruf von Fahrzeugdaten in der Fahrzeugauswahl innerhalb der Startaufstellung verbessert

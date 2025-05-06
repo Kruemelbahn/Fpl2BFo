@@ -1,5 +1,5 @@
 
-#==============#                                       03-11-2020
+#==============#                                       04-01-2025
 #  KRÜMELSOFT  #
 #==============#
                   Allgemeine Nutzungs/Lizenzbedingungen
@@ -32,7 +32,13 @@ Das Programm darf (als Vollversion) nicht kopiert oder in irgendeiner
 anderen Form vervielfältigt werden.
 Ausgenommen hiervon sind Sicherheitskopien für den persönlichen Gebrauch.
 
-1c. Gewerbliche Nutzung
+1c. Update / Upgradegrade
+Der Lizenzschlüssel bleibt bei einem Update (= neue Version innerhalb einer Hauptversion)
+weiterhin gültig, bei einem Upgrade (= neue Hauptversion) kann programmabhängig ein 
+neuer Lizenzschlüssel erforderlich sein. Ohne einen neuen Lizenzschlüssel wird die
+neue Hauptversion wieder zur Sharewareversion (siehe Punkt 1a. dieser Bestimmung) 
+
+1d. Gewerbliche Nutzung
 Eine gewerbliche Nutzung aller Programmdateien bedarf der ausdrücklichen
 Genehmigung.
 
@@ -66,8 +72,8 @@ eine Lizenz beantragen.
 Nach Beantragung der Lizenz bekommt der Anwender/Nutzer eine Rechnung
 mit den Zahlungsmodalitäten. Eine Lizenzierung und die Bekanntgabe des
 persönlichen Lizenzcodes erfolgt nach eingegangener Zahlung.
-Jeder lizenzierte Anwender/Nutzer wird über Programmaktualisierungen und
-Fehlerbeseitigungen informiert.
+Jeder lizenzierte Anwender/Nutzer wird auf Wunsch über Programmaktualisierungen
+und Fehlerbeseitigungen informiert.
 Ferner wird der lizenzierte Anwender/Nutzer auf Wunsch über neue Versionen
 und weitere Programme von KRÜMELSOFT informiert.
 
