@@ -68,11 +68,11 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - Registrierung der Dateiendungen für die Dateivorschau korrigiert und erweitert
 
 ## neu in Version 3.0
-- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/ReleaseNotes.txt))
+- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
 - Hilfe aktualisiert
 
 ## neu in Version 3.0.1
-- Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/ReleaseNotes.txt))
+- Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
 
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
