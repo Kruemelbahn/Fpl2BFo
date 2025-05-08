@@ -2,6 +2,13 @@
 # Fpl2BFO - Release Notes #
 #=========================#
 
+Version 3.0.1 (07.05.2025)
+--------------------------
+Korrekturen:
++ Korrektur beim Speichern einer BFO-Datei mit integrierten STA-Daten
++ Korrektur in der Updateerkennung
++ Korrektur im COM-Server
+
 Version 3.0 (03.05.2025)
 ------------------------
 Neu:
@@ -24,7 +31,7 @@ Neu:
   Diese Schnittstelle wird von einen COM-Server ("Fpl2BFoServer.DLL") verwendet und muss separat lizenziert werden (Dialog 'erweiterte Lizenzierung')
 
 Die wichtigsten Korrekturen:
-+ zahlreiche Bugfixes, u.a. Fehler beim Tabellenexport korrigiert
++ zahlreiche Korrekturen, u.a. Fehler beim Tabellenexport korrigiert
 + Hilfe aktualisiert und erweitert
 + Im "Dialog Druckeinrichtung" kann die Hilfe auch über "F1" aufgerufen werden
 + Im "Dialog Seitenansicht" wird jetzt über "F1" die richtige Hilfe aufgerufen
