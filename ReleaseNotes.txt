@@ -2,6 +2,24 @@
 # Fpl2BFO - Release Notes #
 #=========================#
 
+Version 3.1 (14.06.2025)
+--------------------------
+Neu:
++ Verbesserte Erkennung einer Durchfahrt
++ Darstellung der Spezialzeichen im Fahrplaneditor
++ neue Funktion: 'Gehe zu Zugnummer...' ermöglicht die Angabe und die Suche einer Zugnummer
++ neue Funktion: 'Alle Fahrplanzeilen teilen' ermöglicht das Teilen aller Fahrplanzeilen
++ neue Funktion: 'Gleisplan anzeigen...' zeigt den zugehörigen Gleisplan an
++ Hinweismeldungen beim Einlesen einer fehlerhafter FPL-Datei
++ weitere kleinere Optimierungen
+
+Korrekturen:
++ Korrektur beim Einlesen von linearen Fahrplandateien
++ Korrektur und Erweiterung im Updatehandling
++ Korrektur bei der Auswertung der Kommandozeile
++ Korrektur der Ausgabe und des Inhaltes der Anleitung zur Bahnhofsfahrordnung
++ weitere kleinere Korrekturen
+
 Version 3.0.1 (07.05.2025)
 --------------------------
 Korrekturen:
@@ -12,7 +30,7 @@ Korrekturen:
 Version 3.0 (03.05.2025)
 ------------------------
 Neu:
-+ Lizenzbedingungen aktualisiert; für V3.0 (Upgrade) ist eine _neue_ Lizenz erforderlich.
++ Lizenzbedingungen aktualisiert; ab V3.0 (Upgrade) ist eine _neue_ Lizenz erforderlich.
 + Plausibilitätsmeldungen
   - können jetzt auch unabhängig vom Speichern/Seitenansicht/Drucken/Exportieren ausgeführt werden
   - können gesammelt angezeigt werden

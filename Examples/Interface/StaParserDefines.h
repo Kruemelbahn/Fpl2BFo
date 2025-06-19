@@ -15,7 +15,7 @@ struct _STA_ONE_LINE
 };
 
 // filled from BFO or STA-File
-class CSTAGridArray : public CArray <_STA_ONE_LINE, _STA_ONE_LINE&>
+class CSTAGridArray final : public CArray <_STA_ONE_LINE, _STA_ONE_LINE&>
 {
 public:
   CSTAGridArray() {};

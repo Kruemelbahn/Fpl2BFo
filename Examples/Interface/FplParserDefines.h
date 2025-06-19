@@ -27,7 +27,7 @@ struct _FPL_FILEINFO
   CString stafile;    // STA-Datei
   CString staVersion; // STA-Dateiversion
   CString trackplan;  // Gleisplandatei
-  BOOL printData { FALSE }; // kommt aus 'INT_PTR CFpl2BFoDoc::AskForMissingInformations()'
+  BOOL printData { FALSE };
 
   // alles löschen:
   void clear(const BOOL bAll) noexcept {
@@ -55,7 +55,7 @@ struct _FPL_ONE_STATION
 };
 
 // filled from FPL-File
-class CFPLStationArray : public CArray <_FPL_ONE_STATION, _FPL_ONE_STATION&>
+class CFPLStationArray final : public CArray <_FPL_ONE_STATION, _FPL_ONE_STATION&>
 {
 public:
   CFPLStationArray() {};
@@ -73,7 +73,7 @@ public:
     }
     CArray<_FPL_ONE_STATION, _FPL_ONE_STATION&>::RemoveAll();
   } // virtual void RemoveAll()
-  INT_PTR findStationById(const int iStationIdToFind) const
+  INT_PTR FindStationIndexById(const int iStationIdToFind) const
   {
     if (iStationIdToFind < 0)
       return -1;
@@ -88,7 +88,7 @@ public:
       i++;
     }
     return -1;
-  } // INT_PTR findStationById(const int iStationIdToFind) const
+  } // INT_PTR FindStationIndexById(const int iStationIdToFind) const
 };
 
 //=============================================================================
@@ -106,7 +106,7 @@ struct _FPL_ONE_STATION_ON_TRACK
 };
 
 // filled from FPL-File
-class CFPLStationTrackArray : public CArray <_FPL_ONE_STATION_ON_TRACK, _FPL_ONE_STATION_ON_TRACK&>
+class CFPLStationTrackArray final : public CArray <_FPL_ONE_STATION_ON_TRACK, _FPL_ONE_STATION_ON_TRACK&>
 {
 public:
   CFPLStationTrackArray() {};
@@ -169,7 +169,7 @@ struct _FPL_TIME_FOR_ONE_TRAIN
 };
 
 // filled from FPL-File
-class CFPLTimeForOneTrainArray : public CArray <_FPL_TIME_FOR_ONE_TRAIN, _FPL_TIME_FOR_ONE_TRAIN&>
+class CFPLTimeForOneTrainArray final : public CArray <_FPL_TIME_FOR_ONE_TRAIN, _FPL_TIME_FOR_ONE_TRAIN&>
 {
 public:
   CFPLTimeForOneTrainArray() {};
@@ -192,7 +192,7 @@ struct _FPL_ONE_TRAIN
 };
 
 // filled from FPL-File
-class CFPLTrainArray : public CArray <_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>
+class CFPLTrainArray final : public CArray <_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>
 {
 public:
   CFPLTrainArray() {};

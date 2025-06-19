@@ -4,7 +4,7 @@
 #include "UtilParserDefines.h"
 
 //=============================================================================
-class CUIntUniqueArray : public CUIntArray
+class CUIntUniqueArray final : public CUIntArray
 {
 public:
   CUIntUniqueArray() noexcept {};
@@ -42,7 +42,7 @@ struct _BFO_ONE_POSITION
   CString Km;
 };
 
-class CBFOPositionsArray : public CArray <_BFO_ONE_POSITION, _BFO_ONE_POSITION&>
+class CBFOPositionsArray final : public CArray <_BFO_ONE_POSITION, _BFO_ONE_POSITION&>
 {
 public:
   CBFOPositionsArray() {};
@@ -59,7 +59,7 @@ struct _ONE_STATION
   double Km { 0.0 };
 };
 
-class CStationArray : public CArray <_ONE_STATION, _ONE_STATION&>
+class CStationArray final : public CArray <_ONE_STATION, _ONE_STATION&>
 {
 public:
   CStationArray() {};
@@ -80,7 +80,7 @@ public:
     // nein : Position suchen
     while (i >= 0)
     {
-      const _ONE_STATION oCurrentStation(CArray<_ONE_STATION, _ONE_STATION&>::GetAt(i));
+      oCurrentStation = CArray<_ONE_STATION, _ONE_STATION&>::GetAt(i);
       if (_dpcomp(oneStationToAdd.Km, oCurrentStation.Km) == _FP_GT)
       {
         CArray<_ONE_STATION, _ONE_STATION&>::InsertAt(i + 1, oneStationToAdd);
@@ -127,7 +127,7 @@ struct _BFO_ONE_STATION
 };
 
 // filled from BFO-File
-class CBFOStationsArray : public CArray <_BFO_ONE_STATION, _BFO_ONE_STATION&>
+class CBFOStationsArray final : public CArray <_BFO_ONE_STATION, _BFO_ONE_STATION&>
 {
 public:
   CBFOStationsArray() {};
@@ -155,7 +155,7 @@ public:
     }
     CArray<_BFO_ONE_STATION, _BFO_ONE_STATION&>::RemoveAll();
   } // virtual void RemoveAll()
-  INT_PTR findStationById(const int iStationIdToFind) const
+  INT_PTR FindStationIndexById(const int iStationIdToFind) const
   {
     if (iStationIdToFind < 0)
       return -1;
@@ -170,8 +170,8 @@ public:
       i++;
     }
     return -1;
-  } // INT_PTR findStationById(const int iStationIdToFind) const
-  INT_PTR findStationIdByName(const CString sStationNameToFind) const
+  } // INT_PTR FindStationIndexById(const int iStationIdToFind) const
+  INT_PTR FindStationIdByName(const CString sStationNameToFind) const
   {
     if (sStationNameToFind.IsEmpty())
       return -1;
@@ -182,11 +182,11 @@ public:
     {
       const _BFO_ONE_STATION oOneStation(CArray<_BFO_ONE_STATION, _BFO_ONE_STATION&>::GetAt(i));
       if (!sStationNameToFind.CompareNoCase(oOneStation.Name))
-        return oOneStation.Id;
+        return oOneStation.Id;  // 1...n
       i++;
     }
     return -1;
-  } // INT_PTR findStationIdByName(const CString sStationNameToFind) const
+  } // INT_PTR FindStationIdByName(const CString sStationNameToFind) const
 };
 
 //=============================================================================
@@ -196,7 +196,6 @@ struct _BFO_ONE_SCHEDULE_ROW
   int iTimeValueForSort { 0 };
   int iTimeValueForSortArrival { 0 };
   int iTimeValueForSortDeparture { 0 };
-  CString d;
   CString Arrival;
   CString Departure;
   CString TrainClass;
@@ -210,15 +209,15 @@ struct _BFO_ONE_SCHEDULE_ROW
   CString Comment;
 
   // alles löschen:
-  void clear() {
+  void clear() noexcept {
     iTimeValueForSort = iTimeValueForSortArrival = iTimeValueForSortDeparture = 0;
-    d.Empty(); Arrival.Empty(); Departure.Empty(); TrainClass.Empty(); TrainId.Empty(); Track.Empty(); NotificationFrom.Empty(); NotificationTo.Empty();
+    Arrival.Empty(); Departure.Empty(); TrainClass.Empty(); TrainId.Empty(); Track.Empty(); NotificationFrom.Empty(); NotificationTo.Empty();
     ChangeId.Empty(); ReverseDirection.Empty(); Command.Empty(); Comment.Empty();
   }
 };
 
-// filled from BFO-File
-class CBFOScheduleRows : public CArray <_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>
+// filled from FPL- or BFO-File
+class CBFOScheduleRows final : public CArray <_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>
 {
 public:
   CBFOScheduleRows() {};
@@ -241,18 +240,18 @@ public:
       // erstes Element : einfach anhängen
       return CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::Add(oneScheduleRow);
 
-    if (FindByTimeValue(oneScheduleRow.iTimeValueForSort) == -1)
+    if (FindIndexByTimeValue(oneScheduleRow.iTimeValueForSort) == -1)
     { // nicht gefunden : (sortiert) einfügen
 
       // wird der Eintrag am Ende eingefügt ?
-      const _BFO_ONE_SCHEDULE_ROW oRow(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(i));
+      _BFO_ONE_SCHEDULE_ROW oRow(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(i));
       if (oneScheduleRow.iTimeValueForSort > oRow.iTimeValueForSort)
         return CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::Add(oneScheduleRow);
 
       // nein : Position suchen
       while (i >= 0)
       {
-        const _BFO_ONE_SCHEDULE_ROW oRow(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(i));
+        oRow = CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(i);
         if (oneScheduleRow.iTimeValueForSort > oRow.iTimeValueForSort)
         {
           CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::InsertAt(i + 1, oneScheduleRow);
@@ -267,7 +266,7 @@ public:
     } // if (Find(oneScheduleRow.iTimeValueForSort) == -1)
     return -1; // gefunden : nicht einfügen
   } // INT_PTR AddSorted(_BFO_ONE_SCHEDULE_ROW oneScheduleRow)
-  INT_PTR FindByTimeValue(const int iTimeValueForSort) const
+  INT_PTR FindIndexByTimeValue(const int iTimeValueForSort) const
   {
     // if not found return -1 else position within array
     INT_PTR i(0);
@@ -279,7 +278,7 @@ public:
       i++;
     }
     return -1;
-  } // INT_PTR FindByTimeValue(const int iTimeValueForSort) const
+  } // INT_PTR FindIndexByTimeValue(const int iTimeValueForSort) const
 };
 
 //=============================================================================
@@ -292,7 +291,7 @@ struct _ONE_ROUTE
 };
 
 // filled from BFO-File
-class CRouteArray : public CArray <_ONE_ROUTE, _ONE_ROUTE&>
+class CRouteArray final : public CArray <_ONE_ROUTE, _ONE_ROUTE&>
 {
 public:
   CRouteArray(CBFOStationsArray* pBFOStationsArray)
@@ -300,7 +299,7 @@ public:
     if (!pBFOStationsArray)
       return;
     // count Routes:
-    CUIntUniqueArray aNetsListRouteId;
+    CUIntUniqueArray aNetsListRouteId{};
     BOOL bFound(FALSE);
     for (INT_PTR iIndex = 0; iIndex < pBFOStationsArray->GetCount(); iIndex++)
     {
@@ -316,7 +315,7 @@ public:
     for (INT_PTR iRouteId = 0; iRouteId < aNetsListRouteId.GetCount(); iRouteId++)
     {
       // filter and sort stations for current RouteId
-      CStationArray oStationArray;
+      CStationArray oStationArray{};
       for (INT_PTR iIndex = 0; iIndex < pBFOStationsArray->GetCount(); iIndex++)
       {
         const _BFO_ONE_STATION oBFOStation(pBFOStationsArray->GetAt(iIndex));
@@ -361,12 +360,12 @@ public:
     }
     return -1;
   } // INT_PTR Find(const int iValue) const
-  CString getAsString(const INT_PTR iRoute)
+  CString GetAsString(const INT_PTR iRoute)
   {
     const _ONE_ROUTE oneRoute(CArray<_ONE_ROUTE, _ONE_ROUTE&>::GetAt(iRoute));
     CString sRoute;
     sRoute.Format(_T("%i: %s %c=%c %s"), oneRoute.RouteId, oneRoute.firstStation, unsigned char{ 0xAB }, unsigned char{ 0xBB }, oneRoute.lastStation);
     return sRoute;
-  } // CString getAsString(const INT_PTR iRoute)
+  } // CString GetAsString(const INT_PTR iRoute)
 };
 //=============================================================================
