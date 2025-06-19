@@ -74,7 +74,7 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 ## neu in Version 3.0.1
 - Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
 
-## neu in Version 3.0.2
+## neu in Version 3.1
 - neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
 - Hilfe aktualisiert
 
