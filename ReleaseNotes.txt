@@ -2,6 +2,34 @@
 # Fpl2BFO - Release Notes #
 #=========================#
 
+Version 3.2 (01.12.2025)
+--------------------------
+Neu:
++ Beim Einlesen einer fehlerhafter FPL-Datei, werden die Fehler gesammelt und angezeigt
+  Das Einlesen kann anschließend fortgesetzt oder beendet werden.
++ PlugIn 'CheckFPLfile.dll' zum Prüfen einer FPL-Datei auf korrektes Format
++ PlugIn 'SplitBuchfahrplan.dll' zum Aufteilen eines Buchfahrplans aus FPLEdit auf einzelne Buchfahrpläne
++ AddOn 'Fpl2BFoFz.dll' zur Auflistung und Anzeige von Fahrzeugen und deren Daten sowie eine Auflistung der Fahrzeugbesitzer
+  - der Export in ein Tabellenformat ist möglich
++ AddOns und PlugIns werden im Menü jetzt mit verständlichem Namen angezeigt
++ Im Kontextmenü des 'Fahrplaneditors' gibt es den neuen Menüpunkt 'Symbolerläuterungen (Sprung in die Hilfe)'
++ Dialog 'Programminformationen' erweitert
++ Zugriff auf das Internet kann blockiert werden
++ Anzeige in der Statuszeile, wenn das Programm im Administrator-Modus gestartet wurde
++ Im Dialog "Startaufstellung" (AddOn "Fpl2BFoStartGrid")
+  - wird bei Wagen auch nach dem Fahrzeugtyp 'G=Güterwagen' gefiltert
+  - wird bei der "Wagenauswahl auch eine Mehrfachauswahl unterstützt
+  - können Fahrzeugbesitzer aufgelistet werden
++ Aus dem Dialog "Übersicht aller Züge" (Addon "Fpl2BFoTuS")
+  - kann (in einer lizenzierten Version) für alle Züge der Fahrplan in einen Buchfahrplan (HTML-Datei mit allen Zügen) exportiert werden
++ Im Bearbeitungsdialog oder aus dem Dialog "Übersicht aller Züge" (Addon "Fpl2BFoTuS")
+  - kann bei einem Zug auch der zugehörige Fahrplan angezeigt werden
+    - und der angezeigte Fahrplan (in einer lizenzierten Version) in einen Buchfahrplan (HTML-Datei) exportiert werden
+
+Korrekturen:
++ Shortcuts im Menü jetzt sichtbar
++ weitere Korrekturen und Optimierungen
+
 Version 3.1 (14.06.2025)
 --------------------------
 Neu:

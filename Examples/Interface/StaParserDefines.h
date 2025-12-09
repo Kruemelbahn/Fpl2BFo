@@ -12,6 +12,11 @@ struct _STA_ONE_LINE
   CString track;
   CString departure;
   CString destination;
+
+	// alles löschen:
+	void clear() noexcept {
+		trainname.Empty(); loco.Empty(); waggon.Empty(); track.Empty(); departure.Empty(); destination.Empty();
+	}
 };
 
 // filled from BFO or STA-File

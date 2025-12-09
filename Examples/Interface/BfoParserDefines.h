@@ -38,8 +38,14 @@ public:
 // alle Angaben zu einer Position in einer Station
 struct _BFO_ONE_POSITION
 {
-  int RouteId { 0 };
+  int RouteId { -1 };
   CString Km;
+
+  // alles löschen:
+  void clear() noexcept {
+    Km.Empty();
+    RouteId = -1;
+  }
 };
 
 class CBFOPositionsArray final : public CArray <_BFO_ONE_POSITION, _BFO_ONE_POSITION&>
@@ -55,8 +61,15 @@ public:
 struct _ONE_STATION
 {
   CString Name;
-  int Id { 0 };
+  int Id { -1 };
   double Km { 0.0 };
+
+  // alles löschen:
+  void clear() noexcept {
+    Name.Empty();
+    Km = 0.0;
+    Id = -1;
+  }
 };
 
 class CStationArray final : public CArray <_ONE_STATION, _ONE_STATION&>
@@ -65,7 +78,7 @@ public:
   CStationArray() {};
   virtual ~CStationArray() { RemoveAll(); };
   virtual void RemoveAll() { CArray<_ONE_STATION, _ONE_STATION&>::RemoveAll(); };
-  INT_PTR AddSorted(_ONE_STATION oneStationToAdd)
+  INT_PTR AddSortedByKm(_ONE_STATION oneStationToAdd)
   {
     INT_PTR i(CArray<_ONE_STATION, _ONE_STATION&>::GetCount() - 1);
     if (i == -1)
@@ -99,7 +112,6 @@ public:
 struct _BFO_ONE_STATION
 {
   CString Name;
-  CString d;
   int Id { -1 };
   BOOL IsJunction { FALSE };
   CUIntArray* pRouteIds { NULL };
@@ -117,12 +129,14 @@ struct _BFO_ONE_STATION
   BOOL IsFreeEdit{ FALSE };
 
   // alles löschen:
-  void clear(const int iId) noexcept {
-    Name.Empty(); d.Empty(); StationLeft.Empty(); StationRight.Empty(); StationTyp.Empty(); StationShortName.Empty(); Info.Empty();
-    Id = iId;
+  void clear() noexcept {
+    Name.Empty(); StationLeft.Empty(); StationRight.Empty(); StationTyp.Empty(); StationShortName.Empty(); Info.Empty();
+    Id = -1;
     X = Y = 0;
     IsJunction = IsFreeEdit = FALSE;
-    pRouteIds = NULL; pPositions = NULL; pTracks = NULL;
+    pRouteIds = NULL;
+    pPositions = NULL;
+    pTracks = NULL;
   }
 };
 
@@ -193,9 +207,6 @@ public:
 // alle Angaben zu einer Zeitplanzeile
 struct _BFO_ONE_SCHEDULE_ROW
 {
-  int iTimeValueForSort { 0 };
-  int iTimeValueForSortArrival { 0 };
-  int iTimeValueForSortDeparture { 0 };
   CString Arrival;
   CString Departure;
   CString TrainClass;
@@ -207,6 +218,11 @@ struct _BFO_ONE_SCHEDULE_ROW
   CString ReverseDirection;
   CString Command;
   CString Comment;
+
+  // nicht aus der bfo-Datei:
+  int iTimeValueForSort{ 0 };
+  int iTimeValueForSortArrival{ 0 };
+  int iTimeValueForSortDeparture{ 0 };
 
   // alles löschen:
   void clear() noexcept {
@@ -227,10 +243,10 @@ public:
   {
     RemoveAll();
     for (INT_PTR i = 0; i < from.GetCount(); i++)
-      AddSorted(from.GetAt(i));
+      AddSortedByTime(from.GetAt(i));
     return *this;
   } // CBFOScheduleRows& operator= (CBFOScheduleRows& from)
-  INT_PTR AddSorted(_BFO_ONE_SCHEDULE_ROW oneScheduleRow)
+  INT_PTR AddSortedByTime(_BFO_ONE_SCHEDULE_ROW oneScheduleRow)
   {
     if (oneScheduleRow.iTimeValueForSort == 0)
       return CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::Add(oneScheduleRow);
@@ -266,6 +282,19 @@ public:
     } // if (Find(oneScheduleRow.iTimeValueForSort) == -1)
     return -1; // gefunden : nicht einfügen
   } // INT_PTR AddSorted(_BFO_ONE_SCHEDULE_ROW oneScheduleRow)
+  INT_PTR FindIndexByTrainNumber(const CString sTrainNumber) const
+  {
+    // if not found return -1 else position within array
+    INT_PTR i(0);
+    while (i < CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetCount())
+    {
+      const _BFO_ONE_SCHEDULE_ROW oRow(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(i));
+      if (!oRow.TrainId.CompareNoCase(sTrainNumber))
+        return i;
+      i++;
+    }
+    return -1;
+  } // INT_PTR FindIndexByTimeValue(const int iTimeValueForSort) const
   INT_PTR FindIndexByTimeValue(const int iTimeValueForSort) const
   {
     // if not found return -1 else position within array
@@ -282,12 +311,18 @@ public:
 };
 
 //=============================================================================
-// alle Angaben zu einer Strecke
+// alle Angaben zu einer Strecke - wird aus BFO-Daten ermittelt
 struct _ONE_ROUTE
 {
-  int RouteId{ 0 };
+  int RouteId{ -1 };
   CString firstStation;
   CString lastStation;
+
+  // alles löschen:
+  void clear() noexcept {
+    firstStation.Empty(); lastStation.Empty();
+    RouteId = -1;
+  }
 };
 
 // filled from BFO-File
@@ -332,7 +367,7 @@ public:
               oneStation.Km = -1.0;
               try { oneStation.Km = atof(ReplaceDecimalPoint_LOCAL(oBFOPosition.Km)); }
               catch (...) {}
-              oStationArray.AddSorted(oneStation);
+              oStationArray.AddSortedByKm(oneStation);
             } // if (oBFOPosition.RouteId == aNetsListRouteId.GetAt(iRouteId))
           } // for (INT_PTR iIndexPosition = 0; iIndexPosition < (oBFOStation.pPositions)->GetCount(); iIndexPosition++)
         } // if (oBFOStation.pPositions)

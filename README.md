@@ -78,11 +78,18 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
 - Hilfe aktualisiert
 
+## neu in Version 3.2
+- neues AddOn 'CheckFPLfile' um Fahrplandateien auf korrekte Syntx zu prüfen
+- neues AddOn 'Fpl2BFoFz' zur Anzeige der Fahrzeugdaten und deren Besitzer
+- neues PlugIn 'SplitBuchfahrplan', um einen Buchfahrplan mit allen Zügen in einzelne Dateien zu zerlegen
+- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
+- Hilfe aktualisiert
+
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
 > verwenden Sie bitte „vc_redist.xxx.exe“, ein Installationsprogramm für MFC140.DLL, das hier heruntergeladen werden kann (originaler Link zur Microsoft-Seite):
 > 
-> - für Win32: https://aka.ms/vs/17/release/vc_redist.x86.exe 
-> - für Win64: https://aka.ms/vs/17/release/vc_redist.x64.exe
+> - für Win32: https://aka.ms/vs/18/release/vc_redist.x86.exe 
+> - für Win64: https://aka.ms/vs/18/release/vc_redist.x64.exe
 > 
 > Führen Sie die heruntergeladene Datei zur Installation aus.

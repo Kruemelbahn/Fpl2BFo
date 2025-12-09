@@ -75,14 +75,14 @@ public:
 		InvokeHelper(0x60010007, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, pnResult);
 		return result;
 	}
-	STDMETHOD(GetCountOfFPLStationsOnTrack)(__int64* pnCountOfStationsOnTrack)
+	STDMETHOD(GetCountOfFPLPointsOnTrack)(__int64* pnCountOfPointsOnTrack)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_UNKNOWN;
-		InvokeHelper(0x60010008, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, pnCountOfStationsOnTrack);
+		InvokeHelper(0x60010008, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, pnCountOfPointsOnTrack);
 		return result;
 	}
-	STDMETHOD(GetFPLStationTrackArray)(__int64* pnResult)
+	STDMETHOD(GetFPLPointOnTrackArray)(__int64* pnResult)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_UNKNOWN;
@@ -166,7 +166,7 @@ public:
 		InvokeHelper(0x60010014, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementValue);
 		return result;
 	}
-	STDMETHOD(GetElementFromFPLStationOnTrack)(__int64 iIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
+	STDMETHOD(GetElementFromFPLPointOnTrack)(__int64 iIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_BSTR VTS_PBSTR;
@@ -187,53 +187,60 @@ public:
 		InvokeHelper(0x60010017, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementName, pzElementValue);
 		return result;
 	}
+	STDMETHOD(GetElementFromFPLMoveForOneTrain)(__int64 iIndex, __int64 iSubIndex, __int64 iMoveIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
+	{
+		HRESULT result;
+		static BYTE parms[] = VTS_I8 VTS_I8 VTS_I8 VTS_BSTR VTS_PBSTR;
+		InvokeHelper(0x60010018, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, iMoveIndex, pzElementName, pzElementValue);
+		return result;
+	}
 	STDMETHOD(GetElementFromBFOStation)(__int64 iIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_BSTR VTS_PBSTR;
-		InvokeHelper(0x60010018, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
+		InvokeHelper(0x60010019, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
 		return result;
 	}
 	STDMETHOD(GetElementFromBFOStationRouteId)(__int64 iIndex, __int64 iSubIndex, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_I8 VTS_PBSTR;
-		InvokeHelper(0x60010019, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementValue);
+		InvokeHelper(0x6001001a, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementValue);
 		return result;
 	}
 	STDMETHOD(GetElementFromBFOStationPositions)(__int64 iIndex, __int64 iSubIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_I8 VTS_BSTR VTS_PBSTR;
-		InvokeHelper(0x6001001a, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementName, pzElementValue);
+		InvokeHelper(0x6001001b, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementName, pzElementValue);
 		return result;
 	}
 	STDMETHOD(GetElementFromBFOStationTrackName)(__int64 iIndex, __int64 iSubIndex, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_I8 VTS_PBSTR;
-		InvokeHelper(0x6001001b, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementValue);
+		InvokeHelper(0x6001001c, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, iSubIndex, pzElementValue);
 		return result;
 	}
 	STDMETHOD(GetElementFromBFOTimeSchedule)(__int64 iIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_BSTR VTS_PBSTR;
-		InvokeHelper(0x6001001c, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
+		InvokeHelper(0x6001001d, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
 		return result;
 	}
 	STDMETHOD(GetElementFromBFORoute)(__int64 iIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_BSTR VTS_PBSTR;
-		InvokeHelper(0x6001001d, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
+		InvokeHelper(0x6001001e, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
 		return result;
 	}
 	STDMETHOD(GetElementFromSTAEntry)(__int64 iIndex, LPCTSTR pzElementName, BSTR* pzElementValue)
 	{
 		HRESULT result;
 		static BYTE parms[] = VTS_I8 VTS_BSTR VTS_PBSTR;
-		InvokeHelper(0x6001001e, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
+		InvokeHelper(0x6001001f, DISPATCH_METHOD, VT_HRESULT, (void*)&result, parms, iIndex, pzElementName, pzElementValue);
 		return result;
 	}
 
