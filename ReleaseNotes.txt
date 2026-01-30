@@ -18,7 +18,7 @@ Neu:
 + Anzeige in der Statuszeile, wenn das Programm im Administrator-Modus gestartet wurde
 + Im Dialog "Startaufstellung" (AddOn "Fpl2BFoStartGrid")
   - wird bei Wagen auch nach dem Fahrzeugtyp 'G=Güterwagen' gefiltert
-  - wird bei der "Wagenauswahl auch eine Mehrfachauswahl unterstützt
+  - wird bei der "Wagenauswahl" auch eine Mehrfachauswahl unterstützt
   - können Fahrzeugbesitzer aufgelistet werden
 + Aus dem Dialog "Übersicht aller Züge" (Addon "Fpl2BFoTuS")
   - kann (in einer lizenzierten Version) für alle Züge der Fahrplan in einen Buchfahrplan (HTML-Datei mit allen Zügen) exportiert werden

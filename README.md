@@ -1,6 +1,6 @@
 ﻿# Fpl2BFo
 
-is a Windows program for reading FPL-files (created from [FPLEdit](https://fahrplan.manuelhu.de/)) and convert the file into a BFO-file (BFO = Station timetable) which can contain more than the timetable from FPL-file.
+is a Windows program for reading FPL-files (FPL = timetable, created from [FPLEdit](https://fahrplan.manuelhu.de/)) and convert the file into a BFO-file (BFO = Station timetable) which can contain more than the timetable from FPL-file.
 The program is compiled for x64-mode and works under Windows 10 or 11 and may work also on previous Windows-Versions (without guarantee). A version for Windows-32 is also available.<br>
 
 There is no setup necessary, please copy all file into a (new) directory and enjoy.<br>
@@ -11,7 +11,7 @@ A translation of the software into other languages is not planned.
 
 # Fpl2BFo (de)
 
-ist ein Windows-Programm zum Lesen von FPL-Dateien (erstellt aus [FPLEdit](https://fahrplan.manuelhu.de/)) und zum Konvertieren der Datei in eine BFO-Datei (BFO = [Bahnhofsfahrordnung](https://de.wikipedia.org/wiki/Fahrplan_f%C3%BCr_Zugmeldestellen)), die mehr als den Fahrplan aus einer FPL-Datei enthalten kann.
+ist ein Windows-Programm zum Lesen von FPL-Dateien (FPL = Fahrplan, erstellt aus [FPLEdit](https://fahrplan.manuelhu.de/)) und zum Konvertieren der Datei in eine BFO-Datei (BFO = [Bahnhofsfahrordnung](https://de.wikipedia.org/wiki/Fahrplan_f%C3%BCr_Zugmeldestellen)), die mehr als den Fahrplan aus einer FPL-Datei enthalten kann.
 Das Programm ist für den x64-Modus kompiliert und funktioniert unter Windows 10 oder 11 und möglicherweise auch auf früheren Windows-Versionen (ohne Gewähr). Eine Version für Windows-32 ist ebenfalls verfügbar.<br>
 
 Es ist keine Installation erforderlich, einfach alle Dateien in ein (neues) Verzeichnis kopieren und das Programm starten.<br>
@@ -79,7 +79,7 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - Hilfe aktualisiert
 
 ## neu in Version 3.2
-- neues AddOn 'CheckFPLfile' um Fahrplandateien auf korrekte Syntx zu prüfen
+- neues AddOn 'CheckFPLfile' um Fahrplandateien auf korrekte Syntax zu prüfen
 - neues AddOn 'Fpl2BFoFz' zur Anzeige der Fahrzeugdaten und deren Besitzer
 - neues PlugIn 'SplitBuchfahrplan', um einen Buchfahrplan mit allen Zügen in einzelne Dateien zu zerlegen
 - neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
