@@ -20,23 +20,41 @@ Das Programm wurde nach bestem Wissen und ohne Gewähr auf Funktion erstellt in 
 Wenn es nicht nützlich ist, dann eben nicht.
 Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 
-## neu in Version 1.1
-- mehrere Fehler beseitigt
-- Ausgabe der Startaufstellung als Aufsteller oder Karten
+## neu in Version 3.3
+- Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
 
-## neu in Version 1.2
-- einige kleine Fehler behoben
-- Ausgabe der Beschreibung zur Handhabung der BFO-Datei
-- Eigene Symboldefinitionen möglich 
+## neu in Version 3.2
+- neues AddOn 'CheckFPLfile' um Fahrplandateien auf korrekte Syntax zu prüfen
+- neues AddOn 'Fpl2BFoFz' zur Anzeige der Fahrzeugdaten und deren Besitzer
+- neues PlugIn 'SplitBuchfahrplan', um einen Buchfahrplan mit allen Zügen in einzelne Dateien zu zerlegen
+- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
+- Hilfe aktualisiert
 
-## neu in Version 2.0
-- schweren Fehler beim Lesen/Schreiben der BFO-Datei behoben
-- Unterstützung von Hexadezimalwerten für die Verwendung bei Farben für benutzerdefinierte Symbole 
+## neu in Version 3.1
+- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
+- Hilfe aktualisiert
 
-## neu in Version 2.1
-- schweren Fehler beim Lesen der FPL-Datei behoben
-- beim Starten des Programms hilft jetzt ein Startassistent
-- Bahnhofsfahrordnung kann jetzt ohne Fahrplandatei erstellt werden
+## neu in Version 3.0.1
+- Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
+
+## neu in Version 3.0
+- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
+- Hilfe aktualisiert
+
+## neu in Version 2.5
+- verbesserte Unterstützung bei den Prüfläufen, Hilfe aktualisiert
+- Registrierung der Dateiendungen für die Dateivorschau korrigiert und erweitert
+
+## neu in Version 2.4.1
+- Korrektur nach der Lizenzierung
+
+## neu in Version 2.4
+- kleine Fehler u.a. für CustomChar bei der HTML-Ausgabe behoben
+- neue Funktionen in der Bahnhofsauswahl und der Startaufstellung
+- neue Plausibilitätsprüfungen
+- Hilfe aktualisiert
+
+## neu in Version 2.3
 - weitere kleine Fehler behoben
 
 ## neu in Version 2.2
@@ -51,42 +69,24 @@ Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 - neues Addon "Suchen und Ersetzen"
 - weitere kleine Fehler behoben
  
-## neu in Version 2.3
+## neu in Version 2.1
+- schweren Fehler beim Lesen der FPL-Datei behoben
+- beim Starten des Programms hilft jetzt ein Startassistent
+- Bahnhofsfahrordnung kann jetzt ohne Fahrplandatei erstellt werden
 - weitere kleine Fehler behoben
 
-## neu in Version 2.4
-- kleine Fehler u.a. für CustomChar bei der HTML-Ausgabe behoben
-- neue Funktionen in der Bahnhofsauswahl und der Startaufstellung
-- neue Plausibilitätsprüfungen
-- Hilfe aktualisiert
+## neu in Version 2.0
+- schweren Fehler beim Lesen/Schreiben der BFO-Datei behoben
+- Unterstützung von Hexadezimalwerten für die Verwendung bei Farben für benutzerdefinierte Symbole 
 
-## neu in Version 2.4.1
-- Korrektur nach der Lizenzierung
+## neu in Version 1.2
+- einige kleine Fehler behoben
+- Ausgabe der Beschreibung zur Handhabung der BFO-Datei
+- Eigene Symboldefinitionen möglich 
 
-## neu in Version 2.5
-- verbesserte Unterstützung bei den Prüfläufen, Hilfe aktualisiert
-- Registrierung der Dateiendungen für die Dateivorschau korrigiert und erweitert
-
-## neu in Version 3.0
-- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
-- Hilfe aktualisiert
-
-## neu in Version 3.0.1
-- Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
-
-## neu in Version 3.1
-- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
-- Hilfe aktualisiert
-
-## neu in Version 3.2
-- neues AddOn 'CheckFPLfile' um Fahrplandateien auf korrekte Syntax zu prüfen
-- neues AddOn 'Fpl2BFoFz' zur Anzeige der Fahrzeugdaten und deren Besitzer
-- neues PlugIn 'SplitBuchfahrplan', um einen Buchfahrplan mit allen Zügen in einzelne Dateien zu zerlegen
-- neue Funktionen, Erweiterungen von Funktionen, Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
-- Hilfe aktualisiert
-
-## neu in Version 3.3
-- Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
+## neu in Version 1.1
+- mehrere Fehler beseitigt
+- Ausgabe der Startaufstellung als Aufsteller oder Karten
 
 > [!NOTE]
 > Wenn das Programm „Fpl2BFo.exe“ nicht gestartet werden kann, weil MFC140.DLL fehlt,
