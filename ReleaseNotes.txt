@@ -2,27 +2,42 @@
 # Fpl2BFO - Release Notes #
 #=========================#
 
+Version 3.3 (03.03.2026)
+--------------------------
+Korrekturen:
++ Korrekturen im Streckennetzdialog
++ Korrekturen beim Einlesen einer Netz-Fahrplandatei
++ Korrekturen, wenn mehr als ein Start- oder Zielbahnhof angegeben wird
++ im Dialog "Bahnhof auswählen" Handhabung der Bahnhofsauswahl korrigiert
++ "Anleitung zur Bahnhofsfahrordnung" aktualisiert
+
+Neu:
++ Erweiterte Sortiermöglichkeit im Dialog "Fahrzeuge" im AddOn 'Fpl2BFoFz' 
++ Anzeige der Züge im Fahrplan im Dialog "Züge auflisten" im AddOn 'Fpl2BFoTus'
++ Anzeige der verwendeten Triebfahrzeuge im Dialog "Verwendete Triebfahrzeuge" im AddOn 'Fpl2BFoTuS'
++ neue Fehlerprüfung "... Unstimmigkeit zwischen Ankunfts-/Abfahrtszeit und Start-/Zielbahnhof."
+
 Version 3.2 (01.12.2025)
 --------------------------
 Neu:
 + Beim Einlesen einer fehlerhafter FPL-Datei, werden die Fehler gesammelt und angezeigt
   Das Einlesen kann anschließend fortgesetzt oder beendet werden.
-+ PlugIn 'CheckFPLfile.dll' zum Prüfen einer FPL-Datei auf korrektes Format
-+ PlugIn 'SplitBuchfahrplan.dll' zum Aufteilen eines Buchfahrplans aus FPLEdit auf einzelne Buchfahrpläne
-+ AddOn 'Fpl2BFoFz.dll' zur Auflistung und Anzeige von Fahrzeugen und deren Daten sowie eine Auflistung der Fahrzeugbesitzer
++ PlugIn 'CheckFPLfile' zum Prüfen einer FPL-Datei auf korrektes Format
++ PlugIn 'SplitBuchfahrplan' zum Aufteilen eines Buchfahrplans aus FPLEdit auf einzelne Buchfahrpläne
++ AddOn 'Fpl2BFoFz' zur Auflistung und Anzeige von Fahrzeugen und deren Daten sowie eine Auflistung der Fahrzeugbesitzer
   - der Export in ein Tabellenformat ist möglich
 + AddOns und PlugIns werden im Menü jetzt mit verständlichem Namen angezeigt
 + Im Kontextmenü des 'Fahrplaneditors' gibt es den neuen Menüpunkt 'Symbolerläuterungen (Sprung in die Hilfe)'
 + Dialog 'Programminformationen' erweitert
 + Zugriff auf das Internet kann blockiert werden
 + Anzeige in der Statuszeile, wenn das Programm im Administrator-Modus gestartet wurde
-+ Im Dialog "Startaufstellung" (AddOn "Fpl2BFoStartGrid")
++ Im Dialog "Startaufstellung" (AddOn 'Fpl2BFoStartGrid')
   - wird bei Wagen auch nach dem Fahrzeugtyp 'G=Güterwagen' gefiltert
   - wird bei der "Wagenauswahl" auch eine Mehrfachauswahl unterstützt
   - können Fahrzeugbesitzer aufgelistet werden
-+ Aus dem Dialog "Übersicht aller Züge" (Addon "Fpl2BFoTuS")
++ Aus dem Dialog "Übersicht aller Züge" (Addon 'Fpl2BFoTuS')
   - kann (in einer lizenzierten Version) für alle Züge der Fahrplan in einen Buchfahrplan (HTML-Datei mit allen Zügen) exportiert werden
-+ Im Bearbeitungsdialog oder aus dem Dialog "Übersicht aller Züge" (Addon "Fpl2BFoTuS")
++ Im Bearbeitungsdialog oder aus dem Dialog "Übersicht aller Züge" (Addon 'Fpl2BFoTuS')
   - kann bei einem Zug auch der zugehörige Fahrplan angezeigt werden
     - und der angezeigte Fahrplan (in einer lizenzierten Version) in einen Buchfahrplan (HTML-Datei) exportiert werden
 
@@ -72,9 +87,9 @@ Neu:
   - schreibgeschützt (Bearbeiten ist möglich, Speichern nur mit "Speichern unter")
   - optional als Textdatei in einem externen Texteditor
 + ein verfügbares Update kann aus "Fpl2BFo" heraus heruntergeladen werden (Dialog 'Modulinformationen') 
-+ Schnittstelle innerhalb von "Fpl2BFoDat.DLL" damit FPL/BFO/STA-Dateien unabhängig vom Hauptprogramm gelesen werden können.
++ Schnittstelle innerhalb von 'Fpl2BFoDat'" damit FPL/BFO/STA-Dateien unabhängig vom Hauptprogramm gelesen werden können.
   So könnne die gelesenen Daten extern verarbeitet werden.
-  Diese Schnittstelle wird von einen COM-Server ("Fpl2BFoServer.DLL") verwendet und muss separat lizenziert werden (Dialog 'erweiterte Lizenzierung')
+  Diese Schnittstelle wird von einen COM-Server ('Fpl2BFoServer.dll'") verwendet und muss separat lizenziert werden (Dialog 'erweiterte Lizenzierung')
 
 Die wichtigsten Korrekturen:
 + zahlreiche Korrekturen, u.a. Fehler beim Tabellenexport korrigiert

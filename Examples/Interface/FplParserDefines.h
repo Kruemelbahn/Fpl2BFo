@@ -263,6 +263,19 @@ public:
     } // for (INT_PTR i = 0; i < GetCount(); i++)
     CArray<_FPL_TIME_FOR_ONE_TRAIN, _FPL_TIME_FOR_ONE_TRAIN&>::RemoveAll();
   } // virtual void RemoveAll()
+  INT_PTR FindFPLTimeForOneTrainByFplId(const INT_PTR iFplId)
+  {
+    if (iFplId <= 0)
+      return -1;
+
+    for (INT_PTR i = 0; i < GetCount(); i++)
+    {
+      _FPL_TIME_FOR_ONE_TRAIN oOneTime(GetAt(i));
+      if (oOneTime.fpl_id == iFplId)
+        return i;
+    } // for (INT_PTR i = 0; i < GetCount(); i++)
+    return -1;
+  } // INT_PTR FindFPLTimeForOneTrainByFplId(const INT_PTR iFplId)
 };
 
 //=============================================================================
@@ -302,8 +315,8 @@ public:
       {
         (oOneTrain.pTrainTimeArray)->RemoveAll();
         deletenull(oOneTrain.pTrainTimeArray)
-      }
-    }
+      } // if (oOneTrain.pTrainTimeArray)
+    } // for (INT_PTR i = 0; i < GetCount(); i++)
     CArray<_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>::RemoveAll();
   } // virtual void RemoveAll()
   void SortByName()
@@ -355,6 +368,54 @@ public:
     } // while (i < CArray<_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>::GetCount())
     return -1;
   } // INT_PTR FindTrainByTrainId(const CString sTrainIdToFind) const
+  void WorkOnTrainData()
+  {
+    // "v" markiert Tfz von Zug-Nummer - das ersetzen wir:
+    for (INT_PTR i = 0; i < GetCount(); i++)
+    {
+      _FPL_ONE_TRAIN oOneTrain(GetAt(i));
+      if (!oOneTrain.fpl_tfz.IsEmpty())
+      {
+        if (oOneTrain.fpl_tfz.GetAt(0) == _T('v'))
+        {
+          CString sFplTfz(oOneTrain.fpl_tfz);
+          sFplTfz.Replace(_T("von"), _T(""));
+          sFplTfz.Remove(_T('v'));
+          sFplTfz = sFplTfz.Trim();
+          INT_PTR iTrainIndex(FindTrainByName(sFplTfz));
+          if(iTrainIndex == -1)
+            iTrainIndex = FindTrainByTrainId(sFplTfz);
+          if (iTrainIndex != -1)
+          {
+            oOneTrain.fpl_tfz = GetAt(iTrainIndex).fpl_tfz;
+            // Änderung zurückschreiben:
+            SetAt(i, oOneTrain);
+          } // if (iTrainIndex != -1)
+        } // if (oOneTrain.fpl_tfz.GetAt(0) == _T('v'))
+      } // if (!oOneTrain.fpl_tfz.IsEmpty())
+
+      if (!oOneTrain.fpl_last.IsEmpty())
+      {
+        if (oOneTrain.fpl_last.GetAt(0) == _T('v'))
+        {
+          CString sFplLast(oOneTrain.fpl_last);
+          sFplLast.Replace(_T("von"), _T(""));
+          sFplLast.Remove(_T('v'));
+          sFplLast = sFplLast.Trim();
+          INT_PTR iTrainIndex(FindTrainByName(sFplLast));
+          if (iTrainIndex == -1)
+            iTrainIndex = FindTrainByTrainId(sFplLast);
+          if (iTrainIndex != -1)
+          {
+            oOneTrain.fpl_last = GetAt(iTrainIndex).fpl_last;
+            // Änderung zurückschreiben:
+            SetAt(i, oOneTrain);
+          } // if (iTrainIndex != -1)
+        } // if (oOneTrain.fpl_last.GetAt(0) == _T('v'))
+      } // if (!oOneTrain.fpl_last.IsEmpty())
+
+    } // for (INT_PTR i = 0; i < GetCount(); i++)
+  } // void WorkOnTrainData()
 };
 
 //=============================================================================

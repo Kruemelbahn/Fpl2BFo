@@ -185,7 +185,7 @@ public:
     }
     return -1;
   } // INT_PTR FindStationIndexById(const int iStationIdToFind) const
-  INT_PTR FindStationIdByName(const CString sStationNameToFind) const
+  INT_PTR FindStationFplIdByName(const CString sStationNameToFind) const
   {
     if (sStationNameToFind.IsEmpty())
       return -1;
@@ -200,7 +200,7 @@ public:
       i++;
     }
     return -1;
-  } // INT_PTR FindStationIdByName(const CString sStationNameToFind) const
+  } // INT_PTR FindStationFplIdByName(const CString sStationNameToFind) const
 };
 
 //=============================================================================
@@ -223,9 +223,48 @@ struct _BFO_ONE_SCHEDULE_ROW
   int iTimeValueForSort{ 0 };
   int iTimeValueForSortArrival{ 0 };
   int iTimeValueForSortDeparture{ 0 };
+  BOOL bTrainDirectionDown{ FALSE };
+
+  // Objekte vergleichen:
+  BOOL operator== (const _BFO_ONE_SCHEDULE_ROW compareWith)
+  {
+    if (strcmp(Arrival, compareWith.Arrival))
+      return FALSE;
+    if (strcmp(Departure, compareWith.Departure))
+      return FALSE;
+    if (strcmp(TrainClass, compareWith.TrainClass))
+      return FALSE;
+    if (strcmp(TrainId, compareWith.TrainId))
+      return FALSE;
+    if (strcmp(Track, compareWith.Track))
+      return FALSE;
+    if (strcmp(NotificationFrom, compareWith.NotificationFrom))
+      return FALSE;
+    if (strcmp(NotificationTo, compareWith.NotificationTo))
+      return FALSE;
+    if (strcmp(ChangeId, compareWith.ChangeId))
+      return FALSE;
+    if (strcmp(ReverseDirection, compareWith.ReverseDirection))
+      return FALSE;
+    if (strcmp(Command, compareWith.Command))
+      return FALSE;
+    if (strcmp(Comment, compareWith.Comment))
+      return FALSE;
+    if (iTimeValueForSort != compareWith.iTimeValueForSort)
+      return FALSE;
+    if (iTimeValueForSortArrival != compareWith.iTimeValueForSortArrival)
+      return FALSE;
+    if (iTimeValueForSortDeparture != compareWith.iTimeValueForSortDeparture)
+      return FALSE;
+    if (bTrainDirectionDown != compareWith.bTrainDirectionDown)
+      return FALSE;
+
+    return TRUE;
+  } // BOOL operator== (const CBFOScheduleRows& from)
 
   // alles löschen:
   void clear() noexcept {
+    bTrainDirectionDown = FALSE;
     iTimeValueForSort = iTimeValueForSortArrival = iTimeValueForSortDeparture = 0;
     Arrival.Empty(); Departure.Empty(); TrainClass.Empty(); TrainId.Empty(); Track.Empty(); NotificationFrom.Empty(); NotificationTo.Empty();
     ChangeId.Empty(); ReverseDirection.Empty(); Command.Empty(); Comment.Empty();
@@ -239,48 +278,51 @@ public:
   CBFOScheduleRows() {};
   virtual ~CBFOScheduleRows() { RemoveAll(); };
   virtual void RemoveAll() { CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::RemoveAll(); };
-  CBFOScheduleRows& operator= (CBFOScheduleRows& from)
+  CBFOScheduleRows& operator= (const CBFOScheduleRows& from)
   {
     RemoveAll();
     for (INT_PTR i = 0; i < from.GetCount(); i++)
-      AddSortedByTime(from.GetAt(i));
+      AddSortedByTime(from.GetAt(i), TRUE);
     return *this;
   } // CBFOScheduleRows& operator= (CBFOScheduleRows& from)
-  INT_PTR AddSortedByTime(_BFO_ONE_SCHEDULE_ROW oneScheduleRow)
+  INT_PTR AddSortedByTime(_BFO_ONE_SCHEDULE_ROW oneScheduleRow, const BOOL bAllowDuplicates)
   {
     if (oneScheduleRow.iTimeValueForSort == 0)
       return CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::Add(oneScheduleRow);
 
-    INT_PTR i(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetCount() - 1);
-    if (i == -1)
+    INT_PTR iIndexMax(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetCount() - 1);
+    if (iIndexMax == -1)
       // erstes Element : einfach anhängen
       return CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::Add(oneScheduleRow);
 
-    if (FindIndexByTimeValue(oneScheduleRow.iTimeValueForSort) == -1)
+    INT_PTR iIndexFound(FindIndexByTimeValue(oneScheduleRow.iTimeValueForSort));
+    if (iIndexFound == -1)
     { // nicht gefunden : (sortiert) einfügen
 
       // wird der Eintrag am Ende eingefügt ?
-      _BFO_ONE_SCHEDULE_ROW oRow(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(i));
+      _BFO_ONE_SCHEDULE_ROW oRow(CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(iIndexMax));
       if (oneScheduleRow.iTimeValueForSort > oRow.iTimeValueForSort)
         return CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::Add(oneScheduleRow);
 
       // nein : Position suchen
-      while (i >= 0)
+      while (iIndexMax >= 0)
       {
-        oRow = CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(i);
+        oRow = CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::GetAt(iIndexMax);
         if (oneScheduleRow.iTimeValueForSort > oRow.iTimeValueForSort)
         {
-          CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::InsertAt(i + 1, oneScheduleRow);
-          return i + 1;
-        }
-        i--;
+          CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::InsertAt(iIndexMax + 1, oneScheduleRow);
+          return iIndexMax + 1;
+        } // if (oneScheduleRow.iTimeValueForSort > oRow.iTimeValueForSort)
+        --iIndexMax;
       } // while (i >= 0)
-
       CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::InsertAt(0, oneScheduleRow);
       return 0;
-
-    } // if (Find(oneScheduleRow.iTimeValueForSort) == -1)
-    return -1; // gefunden : nicht einfügen
+    } // if (iIndexFound == -1)
+    if (!bAllowDuplicates)
+      return -1; // gefunden : nicht einfügen
+    // gefunden: dann dahinter einfügen (doppelte 'iTimeValueForSort' kommen vor, wenn zwei Züge gleichzeitig einfahren)
+    CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::InsertAt(iIndexFound, oneScheduleRow);
+    return iIndexFound;
   } // INT_PTR AddSorted(_BFO_ONE_SCHEDULE_ROW oneScheduleRow)
   INT_PTR FindIndexByTrainNumber(const CString sTrainNumber) const
   {
