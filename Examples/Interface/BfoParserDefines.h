@@ -295,7 +295,7 @@ public:
       // erstes Element : einfach anhängen
       return CArray<_BFO_ONE_SCHEDULE_ROW, _BFO_ONE_SCHEDULE_ROW&>::Add(oneScheduleRow);
 
-    INT_PTR iIndexFound(FindIndexByTimeValue(oneScheduleRow.iTimeValueForSort));
+    const INT_PTR iIndexFound(FindIndexByTimeValue(oneScheduleRow.iTimeValueForSort));
     if (iIndexFound == -1)
     { // nicht gefunden : (sortiert) einfügen
 

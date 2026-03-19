@@ -2,6 +2,18 @@
 # Fpl2BFO - Release Notes #
 #=========================#
 
+Version 3.4 (12.03.2026)
+--------------------------
+Neu:
++ Anzeige der Züge für die verwendeten Triebfahrzeuge im Dialog "Verwendete Triebfahrzeuge" im AddOn 'Fpl2BFoTuS'
++ in der BFOTEMPL-Datei wird ein zuvor angegebener Gleisplan gespeichert
++ neues Symbol (rotes X in rotem Kreis): "Zug fällt aus". Diese Züge werden dann durchgestrichen dargestellt und ausgegeben
+
+Korrekturen:
++ kleinere Korrekturen u.a. in verschiedenen Dialogen
++ HTML-Export korrigiert
++ Prüflauf "mehrfache Zugnummern" korrigiert
+
 Version 3.3 (03.03.2026)
 --------------------------
 Korrekturen:
@@ -12,7 +24,7 @@ Korrekturen:
 + "Anleitung zur Bahnhofsfahrordnung" aktualisiert
 
 Neu:
-+ Erweiterte Sortiermöglichkeit im Dialog "Fahrzeuge" im AddOn 'Fpl2BFoFz' 
++ Erweiterte Sortiermöglichkeit im Dialog "Fahrzeuge" im AddOn 'Fpl2BFoFz'
 + Anzeige der Züge im Fahrplan im Dialog "Züge auflisten" im AddOn 'Fpl2BFoTus'
 + Anzeige der verwendeten Triebfahrzeuge im Dialog "Verwendete Triebfahrzeuge" im AddOn 'Fpl2BFoTuS'
 + neue Fehlerprüfung "... Unstimmigkeit zwischen Ankunfts-/Abfahrtszeit und Start-/Zielbahnhof."
@@ -86,7 +98,7 @@ Neu:
 + Möglichkeiten beim Öffnen einer BFO-, BFOTEMPL- oder STA-Datei:
   - schreibgeschützt (Bearbeiten ist möglich, Speichern nur mit "Speichern unter")
   - optional als Textdatei in einem externen Texteditor
-+ ein verfügbares Update kann aus "Fpl2BFo" heraus heruntergeladen werden (Dialog 'Modulinformationen') 
++ ein verfügbares Update kann aus "Fpl2BFo" heraus heruntergeladen werden (Dialog 'Modulinformationen')
 + Schnittstelle innerhalb von 'Fpl2BFoDat'" damit FPL/BFO/STA-Dateien unabhängig vom Hauptprogramm gelesen werden können.
   So könnne die gelesenen Daten extern verarbeitet werden.
   Diese Schnittstelle wird von einen COM-Server ('Fpl2BFoServer.dll'") verwendet und muss separat lizenziert werden (Dialog 'erweiterte Lizenzierung')

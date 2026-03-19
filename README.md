@@ -20,6 +20,9 @@ Das Programm wurde nach bestem Wissen und ohne Gewähr auf Funktion erstellt in 
 Wenn es nicht nützlich ist, dann eben nicht.
 Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
 
+## neu in Version 3.4
+- Korrekturen und Erweiterungen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
+
 ## neu in Version 3.3
 - Korrekturen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))
 
