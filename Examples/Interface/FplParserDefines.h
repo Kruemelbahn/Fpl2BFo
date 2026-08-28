@@ -3,6 +3,8 @@
 #include <afxwin.h>
 #include "UtilParserDefines.h"
 
+#define FPL_EXTENSION _T(".fpl")
+
 //=============================================================================
 // generelle Informationen aus dem Dateikopf 'jTrainGraph_timetable'
 // filled from FPL, BFO or STA-File
@@ -23,18 +25,22 @@ struct _FPL_FILEINFO
   INT_PTR iStationCount { 0 };
   INT_PTR iTrainCount { 0 };
   INT_PTR iPointOnTrackCount { 0 };
+  INT_PTR iVehicles{ 0 };
+  BOOL printData{ FALSE };
   CString fplfile;    // FPL-Datei
   CString bfofile;    // BFO-Datei
   CString stafile;    // STA-Datei
   CString staVersion; // STA-Dateiversion
   CString trackplan;  // Gleisplandatei
-  BOOL printData { FALSE };
+  CString fpl_start;  // Abfahrt des ersten Zuges
+  CString fpl_end;    // Ankunft des letzten Zuges
 
   // alles löschen:
   void clear(const BOOL bAll) noexcept {
     file.Empty(); info.Empty(); version.Empty(); d.Empty(); tMin.Empty(); tMax.Empty(); fplfile.Empty();
-    sFont.Empty(); trFont.Empty(); hFont.Empty(); tFont.Empty();
-    iStationCount = iTrainCount = iPointOnTrackCount = 0;
+    sFont.Empty(); trFont.Empty(); hFont.Empty(); tFont.Empty(); fpl_start.Empty(); fpl_end.Empty();
+    iStationCount = iTrainCount = iPointOnTrackCount = iVehicles = 0;
+    printData = FALSE;
     if (bAll) { bfofile.Empty(); trackplan.Empty(); stafile.Empty(); staVersion.Empty(); }
   }
 };
@@ -282,20 +288,23 @@ public:
 // alle Angaben zu einem Zug
 struct _FPL_ONE_TRAIN
 {
-  CString name;     // Name das Zuges, Format aus der FPL-Datei: "<Typ> <Name>"
-  CString d;        // Verkehrstage
-  CString fpl_tfz;  // verwendetes Triebfahrzeug
-  CString fpl_last; // Zuglast (in t)
-  CString fpl_mbr;  // Mindestbremshundertstel
-  CString cm;       // Kommentar
-  int id { 0 };     // Zug-Id
-  CString direction;   // 'ta', 'ti' oder 'tr' gibt die Fahrtrichtung des Zuges an <ti>='down', <ta>='up', <tr>=bei Netzfahrplänen
-  CFPLTimeForOneTrainArray* pTrainTimeArray { NULL };
+  CString name;       // Name das Zuges, Format aus der FPL-Datei: "<Typ> <Name>"
+  CString d;          // Verkehrstage
+  CString fpl_tfz;    // verwendetes Triebfahrzeug
+  CString fpl_last;   // Zuglast (in t)
+  CString fpl_mbr;    // Mindestbremshundertstel
+  CString cm;         // Kommentar
+  CString direction;  // 'ta', 'ti' oder 'tr' gibt die Fahrtrichtung des Zuges an <ti>='down', <ta>='up', <tr>=bei Netzfahrplänen
+  CFPLTimeForOneTrainArray* pTrainTimeArray{ NULL };
+  int id { 0 };       // Zug-Id
+
+  // nicht in der fpl-Datei, kann durch ein PlugIn/AddOn (z.B. Dienstplan erstellen) verwendet werden
+  int driverId{ 0 };  // Id/Nummer des Zugführers
 
   // alles löschen:
   void clear() noexcept {
     name.Empty(); d.Empty(); fpl_tfz.Empty(); fpl_last.Empty(); fpl_mbr.Empty(); cm.Empty(); direction.Empty();
-    id = 0;
+    id = driverId = 0;
     pTrainTimeArray = NULL;
   }
 };
@@ -368,6 +377,22 @@ public:
     } // while (i < CArray<_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>::GetCount())
     return -1;
   } // INT_PTR FindTrainByTrainId(const CString sTrainIdToFind) const
+  INT_PTR FindTrainByVehicle(const CString sVehicleToFind) const
+  {
+    if (sVehicleToFind.IsEmpty())
+      return -1;
+
+    // if not found return -1 else position within array
+    INT_PTR i(0);
+    while (i < CArray<_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>::GetCount())
+    {
+      const _FPL_ONE_TRAIN oOneTrain(CArray<_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>::GetAt(i));
+      if (!sVehicleToFind.CompareNoCase(oOneTrain.fpl_tfz))
+        return i;
+      i++;
+    } // while (i < CArray<_FPL_ONE_TRAIN, _FPL_ONE_TRAIN&>::GetCount())
+    return -1;
+  } // INT_PTR FindTrainByVehicle(const CString sVehicleToFind) const
   void WorkOnTrainData()
   {
     // "v" markiert Tfz von Zug-Nummer - das ersetzen wir:
@@ -416,6 +441,15 @@ public:
 
     } // for (INT_PTR i = 0; i < GetCount(); i++)
   } // void WorkOnTrainData()
+  void clearAllDriverId()
+  {
+    for (INT_PTR i = 0; i < GetCount(); i++)
+    {
+      _FPL_ONE_TRAIN oOneTrain(GetAt(i));
+      oOneTrain.driverId = 0;
+      SetAt(i, oOneTrain);
+    } // for (INT_PTR i = 0; i < GetCount(); i++)
+  }
 };
 
 //=============================================================================

@@ -3,10 +3,10 @@
 is a Windows program for reading FPL-files (FPL = timetable, created from [FPLEdit](https://fahrplan.manuelhu.de/)) and convert the file into a BFO-file (BFO = Station timetable) which can contain more than the timetable from FPL-file.
 The program is compiled for x64-mode and works under Windows 10 or 11 and may work also on previous Windows-Versions (without guarantee). A version for Windows-32 is also available.<br>
 
-There is no setup necessary, please copy all file into a (new) directory and enjoy.<br>
+There is no setup necessary, please copy all files into a (new) directory and enjoy.<br>
 
 The program was created to the best of our knowledge and without guarantee of function in the hope that it will be useful.
-If it is not useful - then it is not.
+If it is not useful - then it is not.<br>
 A translation of the software into other languages is not planned.
 
 # Fpl2BFo (de)
@@ -17,8 +17,13 @@ Das Programm ist für den x64-Modus kompiliert und funktioniert unter Windows 10
 Es ist keine Installation erforderlich, einfach alle Dateien in ein (neues) Verzeichnis kopieren und das Programm starten.<br>
 
 Das Programm wurde nach bestem Wissen und ohne Gewähr auf Funktion erstellt in der Hoffnung, dass es einen Nutzen bringt.
-Wenn es nicht nützlich ist, dann eben nicht.
+Wenn es nicht nützlich ist, dann eben nicht.<br>
 Eine Übersetzung der Software in andere Sprachen ist nicht vorgesehen.
+
+## neu in Version 3.5
+- neues AddOn 'Fpl2BFoRoster' zur Erstellung von Dienst- und Umlaufplänen
+- Hilfe aktualisiert
+- diese und weitere Korrekturen und Erweiterungen: siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt)
 
 ## neu in Version 3.4
 - Korrekturen und Erweiterungen (siehe [Release-Notes](https://github.com/Kruemelbahn/Fpl2BFo/blob/main/ReleaseNotes.txt))

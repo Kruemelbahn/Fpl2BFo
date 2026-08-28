@@ -30,6 +30,7 @@ static CString ReplaceDecimalPoint_LOCAL(CString s)
 //=============================================================================
 static CString GetHResultAsString(long hResult)
 {
+  // wird nicht Ã¼bersetzt, da hier keine Resource-Datei existiert
 	CString sHResultAsString;
 	switch (hResult)
 	{
@@ -43,13 +44,13 @@ static CString GetHResultAsString(long hResult)
 		  sHResultAsString = _T("[0x00000002]: Datei nicht gefunden.");
 		  break;
     case E_NOINTERFACE:
-		  sHResultAsString = _T("[0x80004002]: Schnittstelle nicht verfügbar.");
+		  sHResultAsString = _T("[0x80004002]: Schnittstelle nicht verfuegbar.");
 		  break;
     case DISP_E_MEMBERNOTFOUND:
       sHResultAsString = _T("[0x80020003]: Funktion nicht gefunden.");
       break;
     case CLASS_E_CLASSNOTAVAILABLE:
-	    sHResultAsString = _T("[0x80040111]: Funktion nicht verfügbar.");
+	    sHResultAsString = _T("[0x80040111]: Funktion nicht verfuegbar.");
 	    break;
 	  case CLASS_E_NOTLICENSED:
 		  sHResultAsString = _T("[0x80040112]: Funktion nicht lizenziert.");
@@ -73,7 +74,7 @@ static CString GetHResultAsString(long hResult)
       sHResultAsString = _T("[0x80070005]: Zugriffsfehler");
       break;
     case E_OUTOFMEMORY:
-      sHResultAsString = _T("[0x8007000E]: Kein Speicherplatz verfügbar.");
+      sHResultAsString = _T("[0x8007000E]: Kein Speicherplatz verfuegbar.");
       break;
     default:
 		  sHResultAsString.Format(_T("[0x%08X]: unbekannter Fehlercode."), hResult);

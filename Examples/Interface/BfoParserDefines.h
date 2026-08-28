@@ -112,21 +112,21 @@ public:
 struct _BFO_ONE_STATION
 {
   CString Name;
-  int Id { -1 };
-  BOOL IsJunction { FALSE };
   CUIntArray* pRouteIds { NULL };
   CBFOPositionsArray* pPositions { NULL };
   CStringArray* pTracks { NULL };
+  int Id{ -1 };
+  BOOL IsJunction{ FALSE };
 
   // nicht aus der bfo-Datei:
   int X { 0 };
   int Y { 0 };
+  BOOL IsFreeEdit{ FALSE };
   CString StationLeft;
   CString StationRight;
   CString StationTyp;
   CString StationShortName;
   CString Info;
-  BOOL IsFreeEdit{ FALSE };
 
   // alles löschen:
   void clear() noexcept {
@@ -224,9 +224,10 @@ struct _BFO_ONE_SCHEDULE_ROW
   int iTimeValueForSortArrival{ 0 };
   int iTimeValueForSortDeparture{ 0 };
   BOOL bTrainDirectionDown{ FALSE };
+  int driverId{ 0 };// Id/Nummer des Zugführers
 
   // Objekte vergleichen:
-  BOOL operator== (const _BFO_ONE_SCHEDULE_ROW compareWith)
+  BOOL operator== (const _BFO_ONE_SCHEDULE_ROW compareWith) noexcept
   {
     if (strcmp(Arrival, compareWith.Arrival))
       return FALSE;
@@ -258,14 +259,16 @@ struct _BFO_ONE_SCHEDULE_ROW
       return FALSE;
     if (bTrainDirectionDown != compareWith.bTrainDirectionDown)
       return FALSE;
+    if (driverId != compareWith.driverId)
+      return FALSE;
 
     return TRUE;
-  } // BOOL operator== (const CBFOScheduleRows& from)
+  } // BOOL operator== (const CBFOScheduleRows& from) noexcept
 
   // alles löschen:
   void clear() noexcept {
     bTrainDirectionDown = FALSE;
-    iTimeValueForSort = iTimeValueForSortArrival = iTimeValueForSortDeparture = 0;
+    iTimeValueForSort = iTimeValueForSortArrival = iTimeValueForSortDeparture = driverId = 0;
     Arrival.Empty(); Departure.Empty(); TrainClass.Empty(); TrainId.Empty(); Track.Empty(); NotificationFrom.Empty(); NotificationTo.Empty();
     ChangeId.Empty(); ReverseDirection.Empty(); Command.Empty(); Comment.Empty();
   }
@@ -441,7 +444,7 @@ public:
   {
     const _ONE_ROUTE oneRoute(CArray<_ONE_ROUTE, _ONE_ROUTE&>::GetAt(iRoute));
     CString sRoute;
-    sRoute.Format(_T("%i: %s %c=%c %s"), oneRoute.RouteId, oneRoute.firstStation, unsigned char{ 0xAB }, unsigned char{ 0xBB }, oneRoute.lastStation);
+    sRoute.Format(_T("%i: %s %c=%c %s"), oneRoute.RouteId, (LPCTSTR)(oneRoute.firstStation), unsigned char{ 0xAB }, unsigned char{ 0xBB }, (LPCTSTR)(oneRoute.lastStation));
     return sRoute;
   } // CString GetAsString(const INT_PTR iRoute)
 };

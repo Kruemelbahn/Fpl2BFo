@@ -12,9 +12,11 @@ struct _STA_ONE_LINE
   CString track;
   CString departure;
   CString destination;
+	int driverId{ 0 };
 
 	// alles löschen:
 	void clear() noexcept {
+		driverId = 0;
 		trainname.Empty(); loco.Empty(); waggon.Empty(); track.Empty(); departure.Empty(); destination.Empty();
 	}
 };

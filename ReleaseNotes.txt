@@ -2,6 +2,21 @@
 # Fpl2BFO - Release Notes #
 #=========================#
 
+Version 3.5 (26.08.2026)
+--------------------------
+Neu:
++ Überarbeitung des Dialogs "Fahrzeuginformationen": am Fahrzeug eingetragene Bilder und Funktionsdefinitionen können jetzt angezeigt werden
++ weitere Filtermöglichkeiten im Dialog "Fahrzeuginformationen"
++ Fahrzeugdaten können in eine HTML-Datei exportiert werden
++ AddOn 'Fpl2BFoRoster' ("Dienstplan") zur Ermittlung der benötigten (Trieb)Fahrzeugführer und der Triebfahrzeugumläufe
+  - die ermittelten (Trieb)Fahrzeugführer (nummerischer Wert) werden in der Datei 'Roster-Tf.xml' gespeichert und im Dialog "Übersicht aller Züge" angezeigt
+  - die ermittelten (Trieb)Fahrzeugumläufe werden in der Datei 'Roster-Tfz.xml' gespeichert
+  - Dienst- und Umlaufpläne können in verschiedene weitere Formate exportiert werden
+  - Fehlermeldung bei fehlerhaften (Trieb)Fahrzeugumläufen
+
+Korrekturen:
++ kleinere Korrekturen u.a. beim Programmstart und in verschiedenen Funktionen und verschiedenen Dialogen
+
 Version 3.4 (12.03.2026)
 --------------------------
 Neu:
